@@ -319,6 +319,24 @@ test("Keychron Launcher 8k mice get sleep and debounce, 1k mice only debounce", 
   assert.equal(k1.debounce, true);
 });
 
+test("the ZIFRIEND M6 gets debounce and scroll direction but no sleep or signal card", () => {
+  const has = cardAvailability(snapshot({
+    status: {
+      brand: "Zifriend",
+      ui: { family: "zifriend", showAdvancedSection: true, hideSignalCard: true, hideSleepCard: true },
+      debounceMs: 8,
+      scrollDirection: "Forward",
+      performanceMode: true,
+    },
+  }));
+  assert.equal(has.advancedHost, true);
+  assert.equal(has.debounce, true);
+  assert.equal(has.ksnakeScroll, true);
+  assert.equal(has.processing, true);
+  assert.equal(has.sleep, false);
+  assert.equal(has.signal, false);
+});
+
 test("a driver may opt into the advanced section and still suppress its cards", () => {
   const has = cardAvailability(snapshot({
     status: {

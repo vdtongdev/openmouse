@@ -305,11 +305,11 @@ export function SleepCard({ snapshot }: { snapshot: ControlSnapshot }): ReactNod
   );
 }
 
-/** K-snake stores the wheel direction in its persistent config block. */
+/** K-snake and the ZIFRIEND M6 store the wheel direction in the mouse. */
 export function KsnakeScrollCard({ snapshot }: { snapshot: ControlSnapshot }): ReactNode {
   const status = snapshot.status;
   const locale = snapshot.preferences.locale;
-  if (status?.ui?.family !== "ksnake" || status.scrollDirection == null) return null;
+  if ((status?.ui?.family !== "ksnake" && status?.ui?.family !== "zifriend") || status.scrollDirection == null) return null;
   const staged = snapshot.pending.keys.includes("ksnake-scroll-direction");
   return (
     <article id="ksnake-scroll-settings" className={`setting-card${staged ? " is-staged" : ""}`}>

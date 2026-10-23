@@ -59,6 +59,8 @@ const BY_FAMILY: Readonly<Record<string, Partial<DriverTraits>>> = {
   "keychron-8k": { advancedSection: true, sleep: true, debounce: true },
   // Launcher's "1k" protocol has no sleep command, so only debounce.
   "keychron-1k": { advancedSection: true, debounce: true },
+  // The ZIFRIEND M6 speaks the same "1k" command set, so the same flags.
+  zifriend: { advancedSection: true, debounce: true },
   // Launcher offers no sleep setting for the 4K family, so only debounce.
   "keychron-4k": { advancedSection: true, debounce: true },
   // The 8K Nordic family (G3 Air) keeps debounce and sleep in its system block

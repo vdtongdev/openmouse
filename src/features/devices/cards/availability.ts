@@ -191,7 +191,7 @@ function computeCardAvailability(snapshot: ControlSnapshot): CardAvailability {
       && status.debounceMs !== null && status.debounceMs !== undefined,
     sleep: host && (traits.sleep || capabilities?.sleepOptions != null || razerSleep)
       && ui?.hideSleepCard !== true,
-    ksnakeScroll: (ui?.family === "ksnake" || isNoirKsnake) && status.scrollDirection != null,
+    ksnakeScroll: (ui?.family === "ksnake" || ui?.family === "zifriend" || isNoirKsnake) && status.scrollDirection != null,
     lowPower: host && razerLowPower,
     processing: host && processing,
     ninjutsoSensor: host && traits.ninjutso
